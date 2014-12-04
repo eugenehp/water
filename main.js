@@ -232,8 +232,9 @@ window.onload = function() {
   function draw() {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     gl.loadIdentity();
-    gl.translate(0, 0, -1);
-    // gl.translate(0, 0, -5);
+    // gl.translate(0, 0, -1);
+    gl.translate(0, 0, -5);
+    gl.scale(4,2,2);
     gl.rotate(-angleX, 1, 0, 0);
     gl.translate(0, 0, 0);
 
