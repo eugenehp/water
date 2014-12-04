@@ -65,10 +65,10 @@ function Water() {
       ) * 0.25;\
       \
       /* change the velocity to move toward the average */\
-      info.g += (average - info.r) * 0.5;\
+      info.g += (average - info.r) * 1.5;\
       \
       /* attenuate the velocity a little so waves do not last forever */\
-      info.g *= 0.995;\
+      info.g *= 0.975;\
       \
       /* move the vertex along the velocity */\
       info.r += info.g;\
@@ -131,19 +131,6 @@ Water.prototype.addDrop = function(x, y, radius, strength) {
       center: [x, y],
       radius: radius,
       strength: strength
-    }).draw(this_.plane);
-  });
-  this.textureB.swapWith(this.textureA);
-};
-
-Water.prototype.moveSphere = function(oldCenter, newCenter, radius) {
-  var this_ = this;
-  this.textureB.drawTo(function() {
-    this_.textureA.bind();
-    this_.sphereShader.uniforms({
-      oldCenter: oldCenter,
-      newCenter: newCenter,
-      radius: radius
     }).draw(this_.plane);
   });
   this.textureB.swapWith(this.textureA);

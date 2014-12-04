@@ -219,10 +219,6 @@ window.onload = function() {
       }
     }
 
-    // Displace water around the sphere
-    water.moveSphere(oldCenter, center, radius);
-    oldCenter = center;
-
     // Update the water simulation and graphics
     water.stepSimulation();
     water.stepSimulation();
