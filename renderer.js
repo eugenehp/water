@@ -309,7 +309,7 @@ Renderer.prototype.renderWater = function(water, sky) {
   sky.bind(2);
   this.causticTex.bind(3);
   gl.enable(gl.CULL_FACE);
-  for (var i = 0; i < 2; i++) {
+  for (var i = 0; i < 1; i++) {
     gl.cullFace(i ? gl.BACK : gl.FRONT);
     this.waterShaders[i].uniforms({
       light: this.lightDir,

@@ -221,7 +221,7 @@ window.onload = function() {
 
     // Update the water simulation and graphics
     water.stepSimulation();
-    // water.stepSimulation();
+    water.stepSimulation();
     water.updateNormals();
     // renderer.updateCaustics(water);
   }
