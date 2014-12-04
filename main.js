@@ -132,7 +132,7 @@ window.onload = function() {
       mode = MODE_ADD_DROPS;
       duringDrag(x, y);
     } else {
-      mode = MODE_ORBIT_CAMERA;
+      // mode = MODE_ORBIT_CAMERA;
     }
   }
 
