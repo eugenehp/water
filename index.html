@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Eugene HP Water Example</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <script src="OES_texture_float_linear-polyfill.js"></script>
+  <script src="lightgl.js"></script>
+  <script src="cubemap.js"></script>
+  <script src="renderer.js"></script>
+  <script src="water.js"></script>
+  <script src="main.js"></script>
+  <style type="text/css">
+    body { background: black; overflow: hidden; }
+    img { display: none; }
+    canvas { position: absolute; top: 0; left: 0; }
+    #loading { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
+  </style>
+</head><body>
+  <div id="loading">Loading...</div>
+  <img id="tiles" src="tiles.jpg">
+  <img id="xneg" src="xneg.jpg">
+  <img id="xpos" src="xpos.jpg">
+  <img id="ypos" src="ypos.jpg">
+  <img id="zneg" src="zneg.jpg">
+  <img id="zpos" src="zpos.jpg">
+</body></html>
