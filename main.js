@@ -234,7 +234,8 @@ window.onload = function() {
     gl.loadIdentity();
     // gl.translate(0, 0, -1);
     gl.translate(0, 0, -5);
-    gl.scale(4,2,2);
+    var scale = 4;
+    gl.scale(scale,scale,1);
     gl.rotate(-angleX, 1, 0, 0);
     gl.translate(0, 0, 0);
 
