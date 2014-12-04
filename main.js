@@ -54,7 +54,7 @@ window.onload = function() {
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
     gl.matrixMode(gl.PROJECTION);
     gl.loadIdentity();
-    gl.perspective(45, gl.canvas.width / gl.canvas.height, 0.01, 100);
+    gl.perspective(45, gl.canvas.width / gl.canvas.height, 0.01, 10);
     gl.matrixMode(gl.MODELVIEW);
     draw();
   }
@@ -79,7 +79,7 @@ window.onload = function() {
 
   center = oldCenter = new GL.Vector(-0.4, -0.75, 0.2);
   velocity = new GL.Vector();
-  gravity = new GL.Vector(0, -4, 0);
+  gravity = new GL.Vector(0, -1, 0);
   radius = 0.001;
 
   // for (var i = 0; i < 20; i++) {
@@ -98,7 +98,7 @@ window.onload = function() {
   function animate() {
     var nextTime = new Date().getTime();
     if (!paused) {
-      update((nextTime - prevTime) / 1000);
+      update((nextTime - prevTime) / 100);
       draw();
     }
     prevTime = nextTime;
@@ -239,7 +239,8 @@ window.onload = function() {
 
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     gl.loadIdentity();
-    gl.translate(0, 0, -1.6);
+    // gl.translate(0, 0, -1.6);
+    gl.translate(0, 0, -4);
     gl.rotate(-angleX, 1, 0, 0);
     gl.rotate(-angleY, 0, 1, 0);
     gl.translate(0, 1, 0);

@@ -110,7 +110,7 @@ function Renderer() {
   });
   this.lightDir = new GL.Vector(2.0, 2.0, -1.0).unit();
   this.causticTex = new GL.Texture(1024, 1024);
-  this.waterMesh = GL.Mesh.plane({ detail: 200 });
+  this.waterMesh = GL.Mesh.plane({ detail: 0 });
   this.waterShaders = [];
   for (var i = 0; i < 2; i++) {
     this.waterShaders[i] = new GL.Shader('\
@@ -185,7 +185,7 @@ function Renderer() {
       }\
     ');
   }
-  this.sphereMesh = GL.Mesh.sphere({ detail: 10 });
+  this.sphereMesh = GL.Mesh.sphere({ detail: 1 });
   this.sphereShader = new GL.Shader(helperFunctions + '\
     varying vec3 position;\
     void main() {\
@@ -209,7 +209,7 @@ function Renderer() {
     varying vec3 position;\
     void main() {\
       position = gl_Vertex.xyz;\
-      position.y = ((1.0 - position.y) * (7.0 / 12.0) - 1.0) * poolHeight;\
+      position.y = ((1.0 - position.y) * (6.0 / 12.0) - 1.0) * poolHeight;\
       gl_Position = gl_ModelViewProjectionMatrix * vec4(position, 1.0);\
     }\
   ', helperFunctions + '\
