@@ -1185,6 +1185,7 @@ Mesh.cube = function(options) {
       if (mesh.coords) mesh.coords.push([j & 1, (j & 2) / 2]);
       if (mesh.normals) mesh.normals.push(data.slice(4, 7));
     }
+    // v *= 10;
     mesh.triangles.push([v, v + 1, v + 2]);
     mesh.triangles.push([v + 2, v + 1, v + 3]);
   }
