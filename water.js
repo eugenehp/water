@@ -65,7 +65,7 @@ function Water() {
       ) * 0.25;\
       \
       /* change the velocity to move toward the average */\
-      info.g += (average - info.r) * 2.0;\
+      info.g += (average - info.r) * 0.5;\
       \
       /* attenuate the velocity a little so waves do not last forever */\
       info.g *= 0.995;\

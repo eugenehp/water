@@ -89,7 +89,7 @@ var helperFunctions = '\
     vec4 info = texture2D(water, point.xz * 0.5 + 0.5);\
     if (point.y < info.r) {\
       vec4 caustic = texture2D(causticTex, 0.75 * (point.xz - point.y * refractedLight.xz / refractedLight.y) * 0.5 + 0.5);\
-      scale += diffuse * caustic.r * 2.0 * caustic.g;\
+      scale += diffuse * caustic.r * 1.0 * caustic.g;\
     } else {\
       /* shadow for the rim of the pool */\
       vec2 t = intersectCube(point, refractedLight, vec3(-1.0, -poolHeight, -1.0), vec3(1.0, 2.0, 1.0));\
@@ -109,7 +109,8 @@ function Renderer() {
     format: gl.RGB
   });
   this.lightDir = new GL.Vector(2.0, 2.0, -1.0).unit();
-  this.causticTex = new GL.Texture(1024, 1024);
+  var smallerBy = 10;
+  this.causticTex = new GL.Texture(1024/smallerBy, 1024/smallerBy);
   this.waterMesh = GL.Mesh.plane({ detail: 0 });
   this.waterShaders = [];
   for (var i = 0; i < 2; i++) {
