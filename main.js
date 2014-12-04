@@ -82,9 +82,9 @@ window.onload = function() {
   gravity = new GL.Vector(0, -4, 0);
   radius = 0.001;
 
-  for (var i = 0; i < 20; i++) {
-    water.addDrop(Math.random() * 2 - 1, Math.random() * 2 - 1, 0.03, (i & 1) ? 0.01 : -0.01);
-  }
+  // for (var i = 0; i < 20; i++) {
+  //   water.addDrop(Math.random() * 2 - 1, Math.random() * 2 - 1, 0.03, (i & 1) ? 0.01 : -0.01);
+  // }
 
   document.getElementById('loading').innerHTML = '';
   onresize();
@@ -265,7 +265,7 @@ window.onload = function() {
 
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     gl.loadIdentity();
-    gl.translate(0, 0, -2);
+    gl.translate(0, 0, -1.6);
     gl.rotate(-angleX, 1, 0, 0);
     gl.rotate(-angleY, 0, 1, 0);
     gl.translate(0, 1, 0);
