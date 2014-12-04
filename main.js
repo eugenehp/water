@@ -258,17 +258,17 @@ window.onload = function() {
 
   function draw() {
     // Change the light direction to the camera look vector when the L key is pressed
-    if (GL.keys.L) {
-      renderer.lightDir = GL.Vector.fromAngles((90 - angleY) * Math.PI / 180, -angleX * Math.PI / 180);
-      if (paused) renderer.updateCaustics(water);
-    }
+    // if (GL.keys.L) {
+    //   renderer.lightDir = GL.Vector.fromAngles((90 - angleY) * Math.PI / 180, -angleX * Math.PI / 180);
+    //   if (paused) renderer.updateCaustics(water);
+    // }
 
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     gl.loadIdentity();
-    gl.translate(0, 0, -4);
+    gl.translate(0, 0, -2);
     gl.rotate(-angleX, 1, 0, 0);
     gl.rotate(-angleY, 0, 1, 0);
-    gl.translate(0, 0.5, 0);
+    gl.translate(0, 1, 0);
 
     gl.enable(gl.DEPTH_TEST);
     renderer.sphereCenter = center;
