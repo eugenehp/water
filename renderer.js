@@ -109,7 +109,7 @@ function Renderer() {
     format: gl.RGB
   });
   this.lightDir = new GL.Vector(2.0, 2.0, -1.0).unit();
-  var smallerBy = 10;
+  var smallerBy = 1000;
   this.causticTex = new GL.Texture(1024/smallerBy, 1024/smallerBy);
   this.waterMesh = GL.Mesh.plane({ detail: 0 });
   this.waterShaders = [];

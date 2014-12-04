@@ -221,18 +221,12 @@ window.onload = function() {
 
     // Update the water simulation and graphics
     water.stepSimulation();
-    water.stepSimulation();
+    // water.stepSimulation();
     water.updateNormals();
-    renderer.updateCaustics(water);
+    // renderer.updateCaustics(water);
   }
 
   function draw() {
-    // Change the light direction to the camera look vector when the L key is pressed
-    // if (GL.keys.L) {
-    //   renderer.lightDir = GL.Vector.fromAngles((90 - angleY) * Math.PI / 180, -angleX * Math.PI / 180);
-    //   if (paused) renderer.updateCaustics(water);
-    // }
-
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     gl.loadIdentity();
     // gl.translate(0, 0, -1.6);
