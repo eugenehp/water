@@ -123,16 +123,9 @@ window.onload = function() {
     var tracer = new GL.Raytracer();
     var ray = tracer.getRayForPixel(x * ratio, y * ratio);
     var pointOnPlane = tracer.eye.add(ray.multiply(-tracer.eye.y / ray.y));
-    var sphereHitTest = GL.Raytracer.hitTestSphere(tracer.eye, ray, center, radius);
-    if (sphereHitTest) {
-      mode = MODE_MOVE_SPHERE;
-      prevHit = sphereHitTest.hit;
-      planeNormal = tracer.getRayForPixel(gl.canvas.width / 2, gl.canvas.height / 2).negative();
-    } else if (Math.abs(pointOnPlane.x) < 1 && Math.abs(pointOnPlane.z) < 1) {
+    if (Math.abs(pointOnPlane.x) < 1 && Math.abs(pointOnPlane.z) < 1) {
       mode = MODE_ADD_DROPS;
       duringDrag(x, y);
-    } else {
-      // mode = MODE_ORBIT_CAMERA;
     }
   }
 
@@ -149,25 +142,6 @@ window.onload = function() {
         }
         break;
       }
-      // case MODE_MOVE_SPHERE: {
-      //   var tracer = new GL.Raytracer();
-      //   var ray = tracer.getRayForPixel(x * ratio, y * ratio);
-      //   var t = -planeNormal.dot(tracer.eye.subtract(prevHit)) / planeNormal.dot(ray);
-      //   var nextHit = tracer.eye.add(ray.multiply(t));
-      //   center = center.add(nextHit.subtract(prevHit));
-      //   center.x = Math.max(radius - 1, Math.min(1 - radius, center.x));
-      //   center.y = Math.max(radius - 1, Math.min(10, center.y));
-      //   center.z = Math.max(radius - 1, Math.min(1 - radius, center.z));
-      //   prevHit = nextHit;
-      //   // if (paused) renderer.updateCaustics(water);
-      //   break;
-      // }
-      // case MODE_ORBIT_CAMERA: {
-      //   angleY -= x - oldX;
-      //   angleX -= y - oldY;
-      //   angleX = Math.max(-89.999, Math.min(89.999, angleX));
-      //   break;
-      // }
     }
     oldX = x;
     oldY = y;
