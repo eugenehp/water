@@ -1,8 +1,11 @@
 /*
  * WebGL Water
+ * http://github.com/eugenehp/water
+ * based on
  * http://madebyevan.com/webgl-water/
  *
  * Copyright 2011 Evan Wallace
+ * Copyright 2014 Eugene HP
  * Released under the MIT license
  */
 
@@ -109,7 +112,7 @@ function Renderer() {
     format: gl.RGB
   });
   this.lightDir = new GL.Vector(2.0, 2.0, -1.0).unit();
-  var smallerBy = 1000;
+  var smallerBy = 1;
   this.causticTex = new GL.Texture(1024/smallerBy, 1024/smallerBy);
   this.waterMesh = GL.Mesh.plane({ detail: 0 });
   this.waterShaders = [];

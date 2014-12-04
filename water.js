@@ -1,8 +1,11 @@
 /*
  * WebGL Water
+ * http://github.com/eugenehp/water
+ * based on
  * http://madebyevan.com/webgl-water/
  *
  * Copyright 2011 Evan Wallace
+ * Copyright 2014 Eugene HP
  * Released under the MIT license
  */
 

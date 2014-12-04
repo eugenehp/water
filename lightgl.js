@@ -1,8 +1,11 @@
 /*
- * lightgl.js
- * http://github.com/evanw/lightgl.js/
+ * WebGL Water
+ * http://github.com/eugenehp/water
+ * based on
+ * http://madebyevan.com/webgl-water/
  *
  * Copyright 2011 Evan Wallace
+ * Copyright 2014 Eugene HP
  * Released under the MIT license
  */
 var GL = (function() {
@@ -20,8 +23,8 @@ var GL = {
   create: function(options) {
     options = options || {};
     var canvas = document.createElement('canvas');
-    canvas.width = 800;
-    canvas.height = 600;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     if (!('alpha' in options)) options.alpha = false;
     try { gl = canvas.getContext('webgl', options); } catch (e) {}
     try { gl = gl || canvas.getContext('experimental-webgl', options); } catch (e) {}

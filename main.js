@@ -1,8 +1,11 @@
 /*
  * WebGL Water
+ * http://github.com/eugenehp/water
+ * based on
  * http://madebyevan.com/webgl-water/
  *
  * Copyright 2011 Evan Wallace
+ * Copyright 2014 Eugene HP
  * Released under the MIT license
  */
 
@@ -230,17 +233,13 @@ window.onload = function() {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     gl.loadIdentity();
     // gl.translate(0, 0, -1.6);
-    gl.translate(0, 0, -4);
+    gl.translate(0, 0, -5);
     gl.rotate(-angleX, 1, 0, 0);
-    gl.rotate(-angleY, 0, 1, 0);
-    gl.translate(0, 1, 0);
+    gl.translate(0, 0, 0);
 
     gl.enable(gl.DEPTH_TEST);
-    renderer.sphereCenter = center;
-    renderer.sphereRadius = radius;
     renderer.renderCube();
     renderer.renderWater(water, cubemap);
-    renderer.renderSphere();
     gl.disable(gl.DEPTH_TEST);
   }
 };
