@@ -206,8 +206,8 @@ function Renderer() {
       }\
     }\
   ');
-  this.cubeMesh = GL.Mesh.cube();
-  this.cubeMesh.triangles.splice(4, 2);
+  this.cubeMesh = GL.Mesh.plane({ detailX: 20, detailY: 40 });//GL.Mesh.cube();
+  // this.cubeMesh.triangles.splice(4, 2);
   this.cubeMesh.compile();
   this.cubeShader = new GL.Shader(helperFunctions + '\
     varying vec3 position;\

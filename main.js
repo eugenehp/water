@@ -31,7 +31,7 @@ var gl = GL.create();
 var water;
 var cubemap;
 var renderer;
-var angleX = -90;
+var angleX = 90;
 var angleY = 0;
 
 // Sphere physics info
@@ -205,23 +205,6 @@ window.onload = function() {
     if (seconds > 1) return;
     frame += seconds * 2;
 
-    if (mode == MODE_MOVE_SPHERE) {
-      // Start from rest when the player releases the mouse after moving the sphere
-      velocity = new GL.Vector();
-    } else if (useSpherePhysics) {
-      // Fall down with viscosity under water
-      var percentUnderWater = Math.max(0, Math.min(1, (radius - center.y) / (2 * radius)));
-      velocity = velocity.add(gravity.multiply(seconds - 1.1 * seconds * percentUnderWater));
-      velocity = velocity.subtract(velocity.unit().multiply(percentUnderWater * seconds * velocity.dot(velocity)));
-      center = center.add(velocity.multiply(seconds));
-
-      // Bounce off the bottom
-      if (center.y < radius - 1) {
-        center.y = radius - 1;
-        velocity.y = Math.abs(velocity.y) * 0.7;
-      }
-    }
-
     // Update the water simulation and graphics
     water.stepSimulation();
     water.stepSimulation();
@@ -233,15 +216,15 @@ window.onload = function() {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
     gl.loadIdentity();
     // gl.translate(0, 0, -1);
-    gl.translate(0, 0, -5);
-    var scale = 4;
-    gl.scale(scale,scale,1);
-    gl.rotate(-angleX, 1, 0, 0);
-    gl.translate(0, 0, 0);
+    gl.translate(0, 0, -3);
+    // var scale = 2;
+    // gl.scale(scale,scale,scale);
+    gl.rotate(90, 1, 0, 0);
 
     gl.enable(gl.DEPTH_TEST);
     renderer.renderCube();
     renderer.renderWater(water, cubemap);
     gl.disable(gl.DEPTH_TEST);
+
   }
 };
